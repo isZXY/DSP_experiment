@@ -22,8 +22,8 @@ x1n=ifft(X1k);
 
 subplot(3,1,3);
 stem(0:31,x1n);
-axis([0,32,0,1]);
+axis([0,32,0,1]); 
 
+figure;
+stem([x1n,x1n,x1n]) % 32点混叠
 % 发生了混叠失真
-
-2018113027

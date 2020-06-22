@@ -8,8 +8,7 @@ w=2*pi*(0:2047)/2048; % 采样2048个点可以近似看作是连续的频谱
 % Xw的表达式
 R1=(1-exp(-j*N*(w+pi/(2*N))))./(1-exp(-j*w+pi/(2*N)));
 R2=(1-exp(-j*N*(w-pi/(2*N))))./(1-exp(-j*w-pi/(2*N)));
-Xw=0.5*(R1+R2);
-
+Xw=0.5*(R1+R2)
 % 分幅度和相位画图
 subplot(5,1,1);
 plot(w/pi,abs(Xw));
@@ -31,7 +30,7 @@ N=10;
 xn=cos((n*pi)./(2*N));
 Xk=fft(xn);
 subplot(5,1,3);
-stem(n,abs(Xk));
+stem(n*2/10,abs(Xk)); % 做过归一化了
 title("DFT");
 
 %（3）利用hold函数，将DTFT和DFT画在一起。

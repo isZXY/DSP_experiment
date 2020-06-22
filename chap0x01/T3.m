@@ -1,7 +1,7 @@
 % @author:ZXY
 
 % 3.理解高密度频谱和高分辨率频谱的概念。
-clc,clear
+clc,clear,close all
 % （1）取0≤n≤9，求X1(k)
 n=0:9;
 xn=cos(0.48*pi*n)+cos(0.52*pi*n);

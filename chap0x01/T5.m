@@ -13,7 +13,8 @@ fh=3/(2*pi);
 fs_min=2*fh; %所以fs要>=2fh就可以确保不发生混叠失真。
 
 % 随后依次迭代
-fs = 1000
+
+fs = 5
 
 
 N=fs/f0
@@ -21,7 +22,21 @@ N=fs/f0
 n=0:1/fs:Tp;
 xn=exp(-3*n);
 
-Xk=fft(xn);
+Xk=1/fs*fftshift(fft(xn));
+abs(Xk(1))
 
-% 画图
-stem(n,Xk)
+while abs(Xk(1))>0.001 
+   fs = fs*2;
+
+
+    N=fs/f0;
+
+    n=0:1/fs:Tp;
+    xn=exp(-3*n);
+
+    Xk=1/fs*fftshift(fft(xn)); 
+
+end
+    % 画图
+    fs
+     stem(n,Xk)
